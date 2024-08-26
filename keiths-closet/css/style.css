@@ -1,0 +1,992 @@
+/* CSS Variables for easier customization */
+:root {
+    --primary-color: #001F54;
+    --secondary-color: #FF6B6B;
+    --accent-color-light: #8FAADC;
+    --button-bg-color: #FF6B6B;
+    --button-text-color: #FFFFFF;
+    --default-font-family: 'Arial, sans-serif';
+    --transition-speed: 0.3s;
+}
+
+/* General reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--default-font-family);
+    line-height: 1.6;
+    color: var(--primary-color);
+    background-color: #FFFFFF;
+}
+
+html, body {
+    overflow-x: hidden;
+}
+
+.some-container, section, .container-class {
+    overflow: hidden;
+}
+
+.header-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.site-header {
+    background-color: var(--primary-color);
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.social-media-links {
+    position: absolute;
+    top: 50%;
+    left: 100px;
+    transform: translateY(-50%);
+    display: flex;
+    gap: 15px;
+}
+
+.social-media-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    color: white;
+    transition: color var(--transition-speed) ease;
+    text-decoration: none;
+}
+
+.social-media-links a:hover {
+    color: var(--accent-color-light);
+}
+
+.cta-buttons {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+}
+
+.volunteer-btn {
+    background-color: var(--secondary-color); /* Existing base color */
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    transition: background-color var(--transition-speed), box-shadow var(--transition-speed), transform var(--transition-speed);
+    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3); /* Match the initial box-shadow */
+}
+
+.volunteer-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.2); /* Overlay effect */
+    transition: all 0.3s ease;
+    z-index: -1;
+}
+
+.volunteer-btn:hover::before {
+    width: 100%;
+}
+
+
+.volunteer-btn:hover {
+    background-color: #FF8787; /* Matches hover color with Donate buttons */
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4); /* Adjust hover shadow */
+}
+/* Basic styling for hover tab tooltip */
+.hover-tab-link {
+    position: relative; /* Allows absolute positioning for tooltip */
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+/* Updated CSS for hover tab tooltip */
+.hover-tab {
+    display: none;
+    position: fixed; /* Fixed to ensure it's relative to viewport */
+    top: 60px;
+    left: 0;
+    width: 100vw; /* Full width of the viewport */
+    background-color: #f9f9f9;
+    color: #333;
+    padding: 20px 0; /* Adjust padding for spacing */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+    box-sizing: border-box;
+    white-space: normal;
+    border-radius: 0;
+    border-top: 3px solid #d1d1d1; /* Light gray for visual separation */
+}
+
+
+
+
+/* Show the tooltip on hover */
+.nav-item:hover .hover-tab {
+    display: block;
+}
+
+.tooltip-content {
+    display: flex;
+    justify-content: space-between; /* Space between items */
+    align-items: flex-start; /* Align items to the top */
+    max-width: 1400px; /* Adjusted max-width for larger screens */
+    margin: 0 auto;
+    padding: 0 20px;
+    gap: 20px; /* Gap between items */
+}
+
+
+.tooltip-section {
+    flex: 1 1 30%; /* Allow each section to grow equally */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center-align items within each section */
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+}
+
+.tooltip-section h3 {
+    margin-bottom: 10px;
+    color: var(--primary-color); /* Update to match website's primary color */
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-bottom: 2px solid #ff6b6b; /* Update underline to match website's accent color */
+    width: 250px; /* Width to match the image width */
+    display: block; /* Block display for full width */
+    padding-bottom: 5px; /* Padding for underline spacing */
+    text-align: center; /* Center text within the block */
+}
+
+.tooltip-section img {
+    width: 100%; /* Allow image to fill the width of the container */
+    height: 110px; /* Maintain aspect ratio */
+    max-height: 300px; /* Optional: Set a max height to avoid overly tall images */
+    object-fit: cover; /* Ensure image covers the container without distortion */
+    border-radius: 5px; /* Optional: rounded corners for images */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+    margin-top: 10px; /* Space between heading and image */
+}
+.nav-item:hover .hover-tab {
+    display: block; /* Show the tooltip on hover */
+}
+
+/* Simplified link styling with single underline on hover */
+.tooltip-link {
+    display: inline-block; /* Keeps the link inline but allows block properties */
+    margin-top: 10px; /* Space between image and link */
+    color: var(--primary-color); /* Link color matching the theme */
+    text-decoration: none; /* Remove default underline */
+    font-weight: normal; /* Normal font weight */
+    font-size: 1rem; /* Adjust font size to fit better */
+    padding: 5px 10px; /* Minimal padding */
+    border-bottom: none; /* Ensure no border-bottom is set */
+}
+
+/* Underline only on hover */
+.tooltip-link:hover {
+    text-decoration: underline; /* Add underline on hover */
+    color: var(--secondary-color); /* Optional: Change color on hover */
+    border-bottom: none; /* Ensure no border-bottom on hover */
+}
+
+
+
+
+
+.site-logo {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    height: 50px;
+}
+
+.menu-toggle {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1100;
+    cursor: pointer;
+}
+
+.menu-toggle .toggle-bar {
+    width: 30px;
+    height: 3px;
+    background-color: #ffffff;
+    margin: 6px 0;
+    transition: var(--transition-speed);
+}
+
+.menu-close-btn {
+    position: fixed; /* Fix the position */
+    top: 20px; /* Same top alignment as menu toggle */
+    left: 50%; /* Center align */
+    transform: translateX(-50%); /* Center the button horizontally */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    z-index: 1200;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.menu-close-btn:hover {
+    color: #8FAADC;
+}
+
+.fullscreen-menu {
+    background-image: url('../images/photo.jpg');
+    background-size: cover;
+    background-position: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(3, 57, 151, 0.95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    z-index: 1000;
+    transform: scale(0);
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out, visibility 0.8s linear;
+}
+
+.fullscreen-menu.active {
+    transform: scale(1);
+    opacity: 1;
+    visibility: visible;
+}
+
+.fullscreen-menu.closing {
+    transform: scale(0);
+    opacity: 0;
+    visibility: hidden;
+}
+
+.menu-content {
+    text-align: center;
+    color: white;
+}
+
+.menu-logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    max-width: 50px;
+}
+
+.nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nav-list li {
+    margin: 15px 0;
+}
+
+.nav-list a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    transition: color var(--transition-speed) ease;
+}
+
+.nav-list a:hover {
+    color: var(--secondary-color);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.fullscreen-menu.active .nav-list li {
+    opacity: 0;
+    animation: fadeIn 0.5s ease forwards;
+}
+
+.fullscreen-menu.active .nav-list li:nth-child(1) { animation-delay: 0.2s; }
+.fullscreen-menu.active .nav-list li:nth-child(2) { animation-delay: 0.3s; }
+.fullscreen-menu.active .nav-list li:nth-child(3) { animation-delay: 0.4s; }
+
+.nav-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.nav-item {
+    position: relative;
+    display: inline-block; /* Ensure each nav item behaves as a block */
+    margin-right: 30px; /* Adjust this as needed */
+}
+
+.nav-item a {
+    padding: 10px 20px;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color var(--transition-speed) ease;
+}
+
+.nav-item a:hover {
+    color: var(--secondary-color);
+}
+
+.hero-section {
+    position: relative;
+    height: 100vh;
+    background-image: url('../images/hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom right, rgba(0, 31, 84, 0.6), rgba(0, 31, 84, 0.4));
+    z-index: 0;
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px 20px;
+    border-radius: 10px;
+    animation: fadeInUp 1.5s ease-out forwards;
+}
+
+.hero-content p {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px 20px;
+    border-radius: 10px;
+    animation: fadeInUp 1.7s ease-out forwards;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    border-radius: 25px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background-color var(--transition-speed), box-shadow var(--transition-speed);
+    color: white;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    background-color: var(--secondary-color); /* Matches the general CTA color */
+}
+
+.cta-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+    z-index: -1;
+}
+
+.cta-button:hover::before {
+    width: 100%;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+    background-color: #FF6B6B; /* Same hover color as other buttons */
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.keith-section {
+    position: relative;
+    background-image: linear-gradient(to right, rgba(0, 47, 108, 0.8), rgba(196, 30, 58, 0.8)), url('../images/background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding: 4rem 0;
+    font-family: 'Arial', sans-serif;
+    color: white;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.content-wrapper {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    z-index: 2;
+    pointer-events: auto;
+}
+
+.content-wrapper.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.keith-description {
+    flex-basis: 45%;
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    margin-bottom: 1rem;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    text-align: left;
+}
+
+.keith-media {
+    flex-basis: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    animation: slideIn 1.5s ease-out forwards;
+}
+
+.keith-video {
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.keith-video iframe {
+    width: 100%;
+    height: 315px;
+    display: block;
+    border: none;
+    position: relative;
+    z-index: 5;
+}
+
+.keith-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transform: scale(1.1);
+    background-size: cover;
+    z-index: 5;
+}
+
+.keith-image:hover {
+    transform: scale(1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.carousel-banner {
+    position: relative;
+    overflow: hidden;
+    height: 65vh;
+}
+
+.carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out; /* Smooth transition */
+    z-index: 0;
+    pointer-events: none; /* Prevent interaction with non-active slides */
+}
+
+
+.carousel-slide.active {
+    transform: translateY(0); /* Move to visible area */
+    opacity: 1;
+    z-index: 2;
+    pointer-events: auto; /* Allow interaction */
+}
+
+.carousel-slide.prev {
+    transform: translateY(-100%); /* Move up and out of view */
+    z-index: 1;
+    opacity: 0; /* Ensure it's hidden */
+    pointer-events: none; /* Prevent interaction */
+}
+
+/* Next slide moves in from bottom */
+.carousel-slide.next {
+    transform: translateY(100%); /* Move in from the bottom */
+    opacity: 1; /* Ensure the next slide is visible */
+    z-index: 1;
+    pointer-events: auto; /* Allow interaction with next slide */
+}
+
+.carousel-slide:not(.active):not(.prev):not(.next) {
+    visibility: hidden;
+    transform: translateY(100%); /* Move off-screen */
+    opacity: 0;
+    z-index: 0;
+}
+
+.carousel-nav-buttons {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 10;
+}
+
+
+.carousel-nav-btn {
+    width: 15px;
+    height: 15px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    margin: 10px 0;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: background-color var(--transition-speed) ease, 
+                border-color var(--transition-speed) ease, 
+                transform var(--transition-speed) ease;
+}
+
+
+.carousel-nav-btn:hover,
+.carousel-nav-btn.active {
+    background-color: var(--secondary-color);
+    transform: scale(1.2);
+}
+
+.carousel-nav-btn.active {
+    border-color: var(--secondary-color);
+}
+
+.carousel-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    color: white;
+    background: rgba(0, 31, 84, 0.7);
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.carousel-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.carousel-content p {
+    font-size: 1.5rem;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.8;
+}
+
+.site-footer {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+.scrolling-nav {
+    position: fixed;
+    top: -100px;
+    width: 100%;
+    height: 70px;
+    background-color: #FFFFFF;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: top 0.3s ease-in-out;
+    z-index: 101;
+}
+
+.scrolling-nav.visible {
+    top: 0;
+}
+
+.nav-container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    padding: 0 20px;
+}
+
+.nav-logo {
+    height: 50px;
+}
+
+.nav-links {
+    margin-right: auto;
+    margin-left: 20px;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links li a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color var(--transition-speed) ease;
+    position: relative;
+}
+
+.nav-links li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 100%;
+    height: 2px;
+    background-color: var(--secondary-color);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform var(--transition-speed) ease-in-out;
+}
+
+.nav-links li a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.nav-links li a:hover {
+    color: var(--secondary-color);
+}
+
+.nav-cta-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-btn {
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background-color var(--transition-speed), box-shadow var(--transition-speed);
+    color: white;
+    position: relative;
+}
+
+.nav-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+    z-index: -1;
+}
+
+.nav-btn:hover::before {
+    width: 100%;
+}
+
+.nav-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.donate-money-btn {
+    background-color: #FF6B6B;
+    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+}
+
+.donate-money-btn:hover {
+    background-color: #FF8787;
+    box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+}
+
+.donate-clothes-btn {
+    background-color: #FFA500;
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+}
+
+.donate-clothes-btn:hover {
+    background-color: #FFC107;
+    box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+}
+
+.donate-time-btn {
+    background-color: #4ECDC4;
+    box-shadow: 0 4px 15px rgba(78, 205, 196, 0.3);
+}
+
+.donate-time-btn:hover {
+    background-color: #45B7AA;
+    box-shadow: 0 6px 20px rgba(78, 205, 196, 0.4);
+}
+
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .hero-content p {
+        font-size: 1.2rem;
+    }
+
+    .cta-button {
+        font-size: 1rem;
+        padding: 8px 15px;
+    }
+
+    .carousel-content {
+        padding: 15px;
+    }
+
+    .nav-container {
+        flex-direction: column;
+        align-items: center;
+        padding-top: 10px;
+    }
+
+    .nav-links {
+        margin: 10px 0;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-links li {
+        margin: 5px 0;
+    }
+
+    .nav-cta-buttons {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        align-items: center;
+    }
+
+    .nav-btn {
+        width: 80%;
+        text-align: center;
+    }
+}
+
+.main-nav {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    min-width: 200px;
+    pointer-events: auto;
+}
+
+.dropdown-content p {
+    margin: 0;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.dropdown-content p:hover {
+    background-color: #f1f1f1;
+}
+
+.nav-item:hover .dropdown-content {
+    display: block;
+}
+
+.stats-section {
+    background: linear-gradient(135deg, #F3F6FA, #FDEBEB);
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.stats-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.stat-item {
+    width: 200px;
+    margin-bottom: 2rem;
+    padding: 1rem;
+}
+
+.stat-icon img {
+    width: 100px;
+    height: 100px;
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 50%;
+    background-color: #FFFFFF;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #FF6B6B;
+    margin: 1rem 0;
+}
+
+.stat-label {
+    font-size: 1rem;
+    color: #001F54;
+    font-weight: bold;
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(30px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+.keith-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.keith-highlight {
+    color: #c41e3a;
+    font-weight: bold;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+@keyframes dropdown-slide {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes vibrate {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(-2px, -2px); }
+    60% { transform: translate(2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+    100% { transform: translate(0); }
+}
+
+.vibrating {
+    animation: vibrate 0.2s linear infinite;
+}
